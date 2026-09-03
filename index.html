@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peter F. Wolfson — Author, Writer, Public Speaker</title>
+  <meta name="description"
+    content="Peter Francis Wolfson writes about the spiritual nature of mankind. Author of Loving in the Age of Suffering and Lashed Up.">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%232B1D10'/%3E%3Cpath d='M20.7 3.3c-4.4-.3-9.6 1.7-12.9 5-3.2 3.2-5.2 8.2-5.1 12.6.2 0 .4 0 .6 0 4.2-.1 8.9-2.1 12-5.2 3.3-3.3 5.3-8.5 5-12.9-.1-.2-.4-.5-.6-.5-4.9 1-9.4 3.4-12.7 6.7' fill='none' stroke='%23D9BA88' stroke-width='1.4' stroke-linejoin='round'/%3E%3Cpath d='M13.2 10.4L3.6 20' fill='none' stroke='%23D9BA88' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ============================================================
+     TOKENS
+  ============================================================ */
+    :root {
+      --paper: #F3E7D5;
+      --paper-deep: #E9D8BF;
+      --paper-white: #FBF5EA;
+      --ink: #2B1D10;
+      --ink-soft: #5B4530;
+      --ink-faint: #6E5738;
+      --gold: #A8793C;
+      --gold-deep: #8C6530;
+      --gold-light: #D9BA88;
+      --sunset: #C97C4C;
+      --shadow: rgba(30, 19, 8, 0.22);
+      --shadow-soft: rgba(30, 19, 8, 0.12);
+
+      --font-display: "Fraunces", Georgia, serif;
+      --font-mark: "Cormorant Garamond", Georgia, serif;
+      --font-body: "EB Garamond", Georgia, serif;
+
+      --max: 1180px;
+      --edge: clamp(1.5rem, 5vw, 4rem);
+      --radius: 2px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* faint paper grain, echoes the card stock */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.035 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    p {
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    section[id] {
+      scroll-margin-top: 84px;
+    }
+
+    /* thin foil-stamped edge, echoes the card stock where light meets dark */
+    .foil-edge {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold) 18%, var(--gold-light) 50%, var(--gold) 82%, transparent);
+      opacity: 0.55;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--paper-white);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold-deep);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-left: var(--edge);
+      padding-right: var(--edge);
+    }
+
+    .section-head {
+      max-width: 640px;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 3.4vw, 2.85rem);
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+    }
+
+    .section-head p {
+      margin-top: 1em;
+      font-size: 1.12rem;
+      color: var(--ink-soft);
+      max-width: 58ch;
+    }
+
+    section.on-dark .section-head p {
+      color: #D8C6AE;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5em;
+      padding: 0.95em 1.9em;
+      font-family: var(--font-mark);
+      font-size: 1.02rem;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      transition: transform .35s cubic-bezier(.4, .2, .2, 1), background-color .3s ease, color .3s ease, border-color .3s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-solid {
+      background: var(--ink);
+      color: var(--paper-white);
+    }
+
+    .btn-solid:hover {
+      background: var(--gold-deep);
+    }
+
+    .btn-line {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--ink-soft);
+    }
+
+    .btn-line:hover {
+      border-color: var(--ink);
+      background: rgba(43, 29, 16, 0.05);
+    }
+
+    section.on-dark .btn-line {
+      color: var(--paper-white);
+      border-color: rgba(251, 245, 234, 0.45);
+    }
+
+    section.on-dark .btn-line:hover {
+      border-color: var(--paper-white);
+      background: rgba(251, 245, 234, 0.08);
+    }
+
+    .btn-store {
+      background: transparent;
+      color: var(--paper-white);
+      border-color: rgba(251, 245, 234, 0.35);
+      padding: 0.7em 1.4em;
+      font-size: 0.92rem;
+    }
+
+    .btn-store:hover {
+      border-color: var(--gold-light);
+      color: var(--gold-light);
+    }
+
+    .icon {
+      width: 1em;
+      height: 1em;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+     NAV
+  ============================================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(243, 231, 213, 0.86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(43, 29, 16, 0.08);
+      transition: background-color .4s ease, box-shadow .4s ease;
+    }
+
+    .nav.is-scrolled {
+      background: rgba(243, 231, 213, 0.97);
+      box-shadow: 0 8px 24px -18px var(--shadow);
+    }
+
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .brand .icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: var(--gold-deep);
+    }
+
+    .brand-name {
+      font-family: var(--font-mark);
+      font-weight: 600;
+      font-size: 1.18rem;
+      letter-spacing: 0.14em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: clamp(1.4rem, 2.4vw, 2.4rem);
+      font-family: var(--font-mark);
+      font-size: 1.04rem;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      position: relative;
+      padding: 0.3em 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      height: 1px;
+      background: var(--gold-deep);
+      transition: right .35s cubic-bezier(.4, .2, .2, 1);
+    }
+
+    .nav-links a:hover::after {
+      right: 0;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 0.4rem;
+      color: var(--ink);
+    }
+
+    .nav-toggle .icon {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+
+    .nav-toggle .icon-close {
+      display: none;
+    }
+
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      inset: 84px 0 0 0;
+      background: var(--ink);
+      z-index: 99;
+      padding: 2.5rem var(--edge);
+    }
+
+    .nav-mobile-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+      color: var(--gold-light);
+      font-family: var(--font-mark);
+      letter-spacing: 0.18em;
+      font-size: 1rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .nav-mobile-brand .icon {
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+
+    .nav-mobile ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .nav-mobile a {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      color: var(--paper-white);
+      text-decoration: none;
+    }
+
+    body.menu-open .nav-mobile {
+      display: block;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    body.menu-open .icon-menu {
+      display: none;
+    }
+
+    body.menu-open .icon-close {
+      display: block;
+    }
+
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+    /* ============================================================
+     HERO
+  ============================================================ */
+    .hero {
+      background: var(--paper);
+      padding-top: clamp(3rem, 7vw, 5.5rem);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.8fr;
+      gap: clamp(2.5rem, 5vw, 4rem);
+      align-items: center;
+      padding-bottom: clamp(3rem, 7vw, 5rem);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.4vw, 4.1rem);
+      line-height: 1.08;
+      letter-spacing: -0.015em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--gold-deep);
+    }
+
+    .hero-lede {
+      margin-top: 1.6rem;
+      font-size: 1.22rem;
+      color: var(--ink-soft);
+      max-width: 46ch;
+    }
+
+    .hero-actions {
+      margin-top: 2.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .hero-figure {
+      position: relative;
+      justify-self: center;
+    }
+
+    .hero-figure::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 130%;
+      height: 130%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(closest-side, rgba(201, 124, 76, 0.28), rgba(201, 124, 76, 0.08) 55%, transparent 75%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-figure-frame {
+      width: min(320px, 78vw);
+      aspect-ratio: 357 / 539;
+      background: var(--ink);
+      padding: 10px;
+      box-shadow: 0 40px 70px -28px var(--shadow), 0 6px 18px -8px var(--shadow-soft);
+      transform: rotate(3deg);
+      transition: transform .6s cubic-bezier(.4, .2, .2, 1);
+    }
+
+    .hero-figure-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-figure:hover .hero-figure-frame {
+      transform: rotate(0deg);
+    }
+
+    .hero-figure-tag {
+      position: absolute;
+      left: -1.1rem;
+      bottom: 2.2rem;
+      background: var(--paper-white);
+      border: 1px solid rgba(43, 29, 16, 0.12);
+      padding: 0.8em 1.2em;
+      box-shadow: 0 16px 30px -18px var(--shadow);
+      font-family: var(--font-mark);
+      font-size: 0.98rem;
+      letter-spacing: 0.03em;
+      color: var(--ink-soft);
+      max-width: 200px;
+    }
+
+    .hero-figure-tag strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .hero-band {
+      background: var(--ink);
+      padding: 1.4rem var(--edge);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.9rem;
+      text-align: center;
+    }
+
+    .hero-band p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold-light);
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      letter-spacing: 0.01em;
+    }
+
+    .hero-band .icon {
+      width: 1.1rem;
+      height: 1.1rem;
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .hero-figure {
+        justify-self: flex-start;
+        margin-top: 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .book-stores {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .book-stores .btn {
+        width: 100%;
+      }
+    }
+
+    /* ============================================================
+     ABOUT
+  ============================================================ */
+    .about {
+      background: var(--paper);
+      padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+    }
+
+    .about-copy p {
+      margin-bottom: 1.25em;
+      color: var(--ink-soft);
+      font-size: 1.08rem;
+    }
+
+    .about-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pull-card {
+      background: var(--ink);
+      color: var(--paper-white);
+      padding: clamp(2.2rem, 4vw, 3rem);
+      align-self: start;
+      position: relative;
+    }
+
+    .pull-card .icon {
+      width: 2rem;
+      height: 2rem;
+      color: var(--gold-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .pull-card blockquote {
+      margin: 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+      line-height: 1.35;
+      color: var(--paper-white);
+    }
+
+    .pull-card cite {
+      display: block;
+      margin-top: 1.4rem;
+      font-style: normal;
+      font-family: var(--font-mark);
+      letter-spacing: 0.14em;
+      font-size: 0.92rem;
+      color: var(--gold-light);
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================================
+     BOOKS  (dark)
+  ============================================================ */
+    .books {
+      background: var(--ink);
+      color: var(--paper-white);
+      padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+    }
+
+    .books .section-head h2 {
+      color: var(--paper-white);
+    }
+
+    .book-row {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+      align-items: center;
+      padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+    }
+
+    .book-row+.book-row {
+      border-top: 1px solid rgba(251, 245, 234, 0.14);
+    }
+
+    .book-row.reverse .book-visual {
+      order: 2;
+    }
+
+    .book-row.reverse .book-copy {
+      order: 1;
+    }
+
+    .book-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
+    .book-flip {
+      width: min(300px, 72vw);
+      aspect-ratio: 357/539;
+      perspective: 1800px;
+    }
+
+    .book-flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.85s cubic-bezier(.4, .15, .2, 1);
+      transform-style: preserve-3d;
+      box-shadow: 0 34px 60px -20px rgba(0, 0, 0, 0.55);
+    }
+
+    .book-flip.is-flipped .book-flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .book-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .book-face img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .book-face--back {
+      transform: rotateY(180deg);
+    }
+
+    .book-toggle {
+      display: flex;
+      gap: 0.6rem;
+      background: rgba(251, 245, 234, 0.08);
+      padding: 0.35rem;
+      border-radius: 999px;
+    }
+
+    .book-toggle button {
+      background: none;
+      border: none;
+      color: rgba(251, 245, 234, 0.55);
+      font-family: var(--font-mark);
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      padding: 0.5em 1.1em;
+      border-radius: 999px;
+      transition: background-color .3s ease, color .3s ease;
+    }
+
+    .book-toggle button[aria-pressed="true"] {
+      background: var(--gold-light);
+      color: var(--ink);
+    }
+
+    .book-copy h3 {
+      font-size: clamp(1.7rem, 2.8vw, 2.2rem);
+      color: var(--paper-white);
+      line-height: 1.2;
+    }
+
+    .book-copy .subtitle {
+      display: block;
+      font-family: var(--font-mark);
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 1.12rem;
+      margin-top: 0.4em;
+    }
+
+    .book-copy p.desc {
+      margin-top: 1.3rem;
+      color: #D8C6AE;
+      font-size: 1.08rem;
+      max-width: 52ch;
+    }
+
+    .book-stores {
+      margin-top: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    @media (max-width: 780px) {
+
+      .book-row,
+      .book-row.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .book-row.reverse .book-visual,
+      .book-row.reverse .book-copy {
+        order: initial;
+      }
+
+      .book-visual {
+        align-items: flex-start;
+      }
+    }
+
+    /* ============================================================
+     SERVICES
+  ============================================================ */
+    .services {
+      background: var(--paper);
+      padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(43, 29, 16, 0.16);
+      border: 1px solid rgba(43, 29, 16, 0.16);
+    }
+
+    .service-card {
+      background: var(--paper);
+      padding: clamp(2.2rem, 3.4vw, 2.8rem);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .service-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 0.7em;
+    }
+
+    .service-card p.desc {
+      color: var(--ink-soft);
+      font-size: 1.03rem;
+      flex-grow: 1;
+    }
+
+    .audio-player {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: 1.1rem;
+      cursor: pointer;
+    }
+
+    .audio-toggle {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--gold-light);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color .3s ease, transform .3s ease;
+    }
+
+    .audio-toggle:hover {
+      background: var(--gold-deep);
+      color: var(--paper-white);
+      transform: scale(1.06);
+    }
+
+    .audio-toggle .icon {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+
+    .audio-toggle .icon-pause {
+      display: none;
+    }
+
+    .audio-player.is-playing .icon-play {
+      display: none;
+    }
+
+    .audio-player.is-playing .icon-pause {
+      display: block;
+    }
+
+    .audio-seek {
+      flex-grow: 1;
+      min-width: 0;
+      accent-color: var(--gold-deep);
+      height: 3px;
+      cursor: pointer;
+    }
+
+    .audio-time {
+      flex-shrink: 0;
+      font-family: var(--font-mark);
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+      color: var(--ink-faint);
+      white-space: nowrap;
+    }
+
+    .service-price {
+      margin-top: 1.6rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(43, 29, 16, 0.14);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-price .amount {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--gold-deep);
+    }
+
+    .service-price .note {
+      font-size: 0.92rem;
+      color: var(--ink-faint);
+      margin-top: 0.25em;
+    }
+
+    @media (max-width: 640px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================================
+     CONTACT (dark)
+  ============================================================ */
+    .contact {
+      background: var(--ink);
+      color: var(--paper-white);
+      padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+    }
+
+    .contact .section-head h2 {
+      color: var(--paper-white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+    }
+
+    .contact-info p {
+      color: #D8C6AE;
+      font-size: 1.08rem;
+      max-width: 40ch;
+    }
+
+    .contact-detail {
+      margin-top: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .contact-detail a,
+    .contact-detail span {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: var(--font-mark);
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+      color: var(--paper-white);
+      text-decoration: none;
+    }
+
+    .contact-detail .icon {
+      width: 1.2rem;
+      height: 1.2rem;
+      color: var(--gold-light);
+    }
+
+    .contact-detail a:hover {
+      color: var(--gold-light);
+    }
+
+    .contact-detail small {
+      display: block;
+      color: var(--ink-faint);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      margin-top: -0.6rem;
+      padding-left: 2rem;
+    }
+
+    .form-card {
+      background: var(--paper-white);
+      color: var(--ink);
+      padding: clamp(2rem, 4vw, 2.8rem);
+    }
+
+    .field {
+      margin-bottom: 1.4rem;
+    }
+
+    .field label {
+      display: block;
+      font-family: var(--font-mark);
+      font-size: 0.98rem;
+      letter-spacing: 0.05em;
+      color: var(--ink-soft);
+      margin-bottom: 0.5em;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(43, 29, 16, 0.28);
+      padding: 0.6em 0.1em;
+      font-family: var(--font-body);
+      font-size: 1.08rem;
+      color: var(--ink);
+      resize: vertical;
+      transition: border-color .3s ease;
+    }
+
+    .field textarea {
+      min-height: 110px;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      outline: none;
+      border-bottom-color: var(--gold-deep);
+    }
+
+    .field.has-error input,
+    .field.has-error textarea {
+      border-bottom-color: #A6402C;
+    }
+
+    .field-error {
+      display: none;
+      color: #A6402C;
+      font-size: 0.85rem;
+      margin-top: 0.4em;
+    }
+
+    .field.has-error .field-error {
+      display: block;
+    }
+
+    .form-foot {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+    }
+
+    .form-note {
+      font-size: 0.85rem;
+      color: var(--ink-faint);
+    }
+
+    .form-success {
+      display: none;
+      align-items: center;
+      gap: 0.7rem;
+      background: rgba(168, 121, 60, 0.12);
+      border: 1px solid rgba(168, 121, 60, 0.35);
+      padding: 1rem 1.2rem;
+      font-family: var(--font-mark);
+      color: var(--gold-deep);
+      margin-top: 1.2rem;
+    }
+
+    .form-success.is-visible {
+      display: flex;
+    }
+
+    .form-success .icon {
+      width: 1.2rem;
+      height: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================================
+     FOOTER
+  ============================================================ */
+    .site-footer {
+      background: #1C1108;
+      color: var(--gold-light);
+      padding: 2.6rem 0;
+      text-align: center;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6em;
+      font-family: var(--font-mark);
+      letter-spacing: 0.2em;
+      font-size: 1rem;
+    }
+
+    .footer-brand .icon {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      margin-top: 1.4rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+    }
+
+    .footer-nav a {
+      text-decoration: none;
+      color: rgba(217, 186, 136, 0.75);
+    }
+
+    .footer-nav a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-url {
+      margin-top: 1.6rem;
+      font-family: var(--font-mark);
+      letter-spacing: 0.28em;
+      font-size: 0.85rem;
+      color: rgba(217, 186, 136, 0.6);
+    }
+
+    .footer-copy {
+      margin-top: 0.9rem;
+      font-size: 0.82rem;
+      color: rgba(217, 186, 136, 0.4);
+    }
+
+    /* ============================================================
+     REVEAL ANIMATION (hero only, single orchestrated sequence)
+  ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: revealUp .8s cubic-bezier(.2, .6, .2, 1) forwards;
+    }
+
+    @keyframes revealUp {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ICON SPRITES -->
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="icon-feather" viewBox="0 0 24 24">
+      <path
+        d="M20.7 3.3c-4.4-.3-9.6 1.7-12.9 5-3.2 3.2-5.2 8.2-5.1 12.6.2 0 .4 0 .6 0 4.2-.1 8.9-2.1 12-5.2 3.3-3.3 5.3-8.5 5-12.9-.1-.2-.4-.5-.6-.5-4.9 1-9.4 3.4-12.7 6.7"
+        fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
+      <path d="M13.2 10.4L3.6 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+    </symbol>
+    <symbol id="icon-quote" viewBox="0 0 24 24">
+      <path
+        d="M9.5 6C6.5 7.3 4.7 9.7 4.7 12.7c0 2.4 1.6 4 3.6 4 1.7 0 3-1.3 3-2.9 0-1.5-1.1-2.6-2.5-2.7.3-1.6 1.6-3 3.3-3.7L9.5 6zm9.3 0c-3 1.3-4.8 3.7-4.8 6.7 0 2.4 1.6 4 3.6 4 1.7 0 3-1.3 3-2.9 0-1.5-1.1-2.6-2.5-2.7.3-1.6 1.6-3 3.3-3.7L18.8 6z"
+        fill="currentColor" />
+    </symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24">
+      <path d="M4 5c2.2-1 5.3-1 8 0v14c-2.7-1-5.8-1-8 0V5z" fill="none" stroke="currentColor" stroke-width="1.3"
+        stroke-linejoin="round" />
+      <path d="M20 5c-2.2-1-5.3-1-8 0v14c2.7-1 5.8-1 8 0V5z" fill="none" stroke="currentColor" stroke-width="1.3"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="icon-mic" viewBox="0 0 24 24">
+      <path d="M12 15a3 3 0 003-3V6a3 3 0 10-6 0v6a3 3 0 003 3z" fill="none" stroke="currentColor" stroke-width="1.3" />
+      <path d="M6.5 11.5a5.5 5.5 0 0011 0M12 17v3.5M9 20.5h6" fill="none" stroke="currentColor" stroke-width="1.3"
+        stroke-linecap="round" />
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24">
+      <rect x="3.5" y="5.5" width="17" height="13" rx="1" fill="none" stroke="currentColor" stroke-width="1.3" />
+      <path d="M4.5 6.5l7.5 6.5 7.5-6.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="icon-compass" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.3" />
+      <path d="M15 9l-2 5-4.5 2 2-5z" fill="currentColor" />
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="M4 12.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24">
+      <path d="M6 4.5l14 7.5-14 7.5z" fill="currentColor" />
+    </symbol>
+    <symbol id="icon-pause" viewBox="0 0 24 24">
+      <rect x="5.5" y="4.5" width="4.5" height="15" fill="currentColor" />
+      <rect x="14" y="4.5" width="4.5" height="15" fill="currentColor" />
+    </symbol>
+  </svg>
+
+  <!-- ============================== NAV ============================== -->
+  <header class="nav" id="siteNav">
+    <div class="wrap nav-row">
+      <a href="#home" class="brand">
+        <svg class="icon">
+          <use href="#icon-feather" />
+        </svg>
+        <span class="brand-name">Peter&nbsp;F.&nbsp;Wolfson</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#books">Books</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+        <svg class="icon icon-menu">
+          <use href="#icon-menu" />
+        </svg>
+        <svg class="icon icon-close">
+          <use href="#icon-close" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-mobile" id="navMobile">
+    <div class="nav-mobile-brand">
+      <svg class="icon">
+        <use href="#icon-feather" />
+      </svg>
+      PETER F. WOLFSON
+    </div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        </p>
+        <h1 class="reveal" style="animation-delay:.15s">Finding the light within, and returning it to the world.</h1>
+        <p class="hero-lede reveal" style="animation-delay:.28s">Peter Francis Wolfson writes about the sacred thread
+          running through ordinary life — what the modern world has cost us, and the compassion we still carry the tools
+          to reclaim. His mission is simple: to help people find their way back to love, meaning, and one another.</p>
+        <div class="hero-actions reveal" style="animation-delay:.4s">
+          <a href="#books" class="btn btn-solid">Explore the Work</a>
+          <a href="#about" class="btn btn-line">About Peter</a>
+        </div>
+      </div>
+      <div class="hero-figure reveal" style="animation-delay:.3s">
+        <div class="hero-figure-frame">
+          <img src="book1-front.png" alt="Book cover of Loving in the Age of Suffering by Peter F. Wolfson">
+        </div>
+        <div class="hero-figure-tag">
+          <strong>Loving in the Age of Suffering</strong>
+          A Manual for Modern Day Man
+        </div>
+      </div>
+    </div>
+    <div class="hero-band">
+      <svg class="icon">
+        <use href="#icon-compass" />
+      </svg>
+      <p>"In the age of suffering, love is the light that endures."</p>
+    </div>
+  </section>
+
+  <!-- ============================== ABOUT ============================== -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>About Peter</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>Peter Francis Wolfson is a British author who writes about the spiritual nature of mankind. His books
+            examine our connection with the divine nature interwoven within ourselves, what we have lost in a modern,
+            automated way of living, and how to better use the gifts we have inherited from time immemorial — so that we
+            might live in a way that is more compassionate to every living thing, and to the planet itself.</p>
+          <p>Beginning with <em>The Age of Suffering</em>, the first of his books to examine this divine identity, and
+            born from watching a world constantly in turmoil and a desire to turn hearts back toward love, the series
+            has become his deeper exploration of mankind's spiritual identity — a path back to ancient and divine
+            operating principles, and how to manifest and repurpose them for the modern day.</p>
+          <p>Away from his writing, Peter enjoys public speaking, hiking, and music, and is learning to play the
+            svarmandal, a very old instrument from the Indian subcontinent. His passion for the ancient world arose from
+            a degree in Mediaeval and Classical History, and he has spent years exploring castles and ancient sites both
+            in the UK and abroad. Five years spent as a travelling storyteller gave him a deep respect for the spoken
+            word, while time among monks, pagans, druids, and even a Native American shaman shaped his desire to seek
+            out spiritual matters wherever they are still kept alive.</p>
+          <p>Alongside his spiritual non-fiction, Peter also writes fiction, and where a fable serves better than an
+            argument, he lets the story carry the idea instead.</p>
+        </div>
+
+        <div class="pull-card">
+          <svg class="icon">
+            <use href="#icon-quote" />
+          </svg>
+          <blockquote>Become the love you wish to see in the world.</blockquote>
+          <cite>PETER F. WOLFSON</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== BOOKS ============================== -->
+  <div class="foil-edge"></div>
+  <section class="books on-dark" id="books">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>The Books</h2>
+      </div>
+
+      <!-- Book 1 -->
+      <div class="book-row">
+        <div class="book-visual">
+          <div class="book-flip" id="flip1">
+            <div class="book-flip-inner">
+              <div class="book-face book-face--front">
+                <img src="book1-front.png" alt="Front cover of Loving in the Age of Suffering">
+              </div>
+              <div class="book-face book-face--back">
+                <img src="book1-back.png" alt="Back cover of Loving in the Age of Suffering">
+              </div>
+            </div>
+          </div>
+          <div class="book-toggle" data-flip-target="flip1">
+            <button type="button" aria-pressed="true" data-face="front">Front cover</button>
+            <button type="button" aria-pressed="false" data-face="back">Back cover</button>
+          </div>
+        </div>
+        <div class="book-copy">
+          <h3>Loving in the Age of Suffering<span class="subtitle">A Manual for Modern Day Man</span></h3>
+          <p class="desc">In a world quick to overwhelm and slow to heal, this book offers a way back to the light — a
+            spiritual roadmap through grief, connection, and the quiet resilience of the human heart. Written for the
+            modern man learning to feel again, it is as much a companion for hard seasons as it is a guide toward the
+            love that endures them.</p>
+          <div class="book-stores">
+            <a href="#" class="btn btn-store">Amazon</a>
+            <a href="#" class="btn btn-store">Everand</a>
+            <a href="#" class="btn btn-store">Barnes &amp; Noble</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="book-row reverse">
+        <div class="book-visual">
+          <div class="book-flip" id="flip2">
+            <div class="book-flip-inner">
+              <div class="book-face book-face--front">
+                <img src="book2-front.png"
+                  alt="Front cover of Lashed Up, the poetry of Peter Francis Wolfson — a leather-bound cover bound with rope">
+              </div>
+              <div class="book-face book-face--back">
+                <svg viewBox="0 0 349 535" xmlns="http://www.w3.org/2000/svg" role="img"
+                  aria-label="Back cover of Lashed Up">
+                  <defs>
+                    <linearGradient id="leather" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#241A10" />
+                      <stop offset="55%" stop-color="#1B130B" />
+                      <stop offset="100%" stop-color="#120D07" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="349" height="535" fill="url(#leather)" />
+                  <g fill="none" stroke="#6E4E2E" stroke-width="4" stroke-linecap="round" opacity="0.85">
+                    <path d="M18 18 L60 60" />
+                    <path d="M331 18 L289 60" />
+                    <path d="M18 517 L60 475" />
+                    <path d="M331 517 L289 475" />
+                    <path d="M18 18 L18 517" />
+                    <path d="M331 18 L331 517" />
+                  </g>
+                  <g fill="none" stroke="#503A22" stroke-width="1" opacity="0.5">
+                    <path
+                      d="M10 40 L28 40 M10 70 L28 70 M10 100 L28 100 M10 435 L28 435 M10 465 L28 465 M10 495 L28 495" />
+                    <path
+                      d="M321 40 L339 40 M321 70 L339 70 M321 100 L339 100 M321 435 L339 435 M321 465 L339 465 M321 495 L339 495" />
+                  </g>
+                  <text x="174.5" y="86" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic"
+                    font-size="21" fill="#C79A63">Some knots hold us together.</text>
+                  <text x="174.5" y="114" text-anchor="middle" font-family="Fraunces, Georgia, serif"
+                    font-style="italic" font-size="21" fill="#C79A63">Others are meant to be undone.</text>
+                  <foreignObject x="52" y="150" width="245" height="230">
+                    <div xmlns="http://www.w3.org/1999/xhtml"
+                      style="font-family: 'EB Garamond', Georgia, serif; font-size:13px; line-height:1.65; color:#D8C6AE; text-align:center;">
+                      A collection of verse written in the open air, tied together like knots in old rope &mdash; by
+                      grief, by wonder, and by the slow work of coming undone and remaking oneself. Each poem is a
+                      small, private prayer: for the ancient world we&rsquo;ve forgotten, and the ordinary one
+                      we&rsquo;re still learning to love.
+                    </div>
+                  </foreignObject>
+                  <path d="M120 430 Q174 410 228 430 Q174 450 120 430 Z" fill="none" stroke="#6E4E2E"
+                    stroke-width="1.4" />
+                  <text x="174.5" y="490" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif"
+                    font-size="13" letter-spacing="2" fill="#8A6438">A BOOK FOR THE HEART AND SOUL</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="book-toggle" data-flip-target="flip2">
+            <button type="button" aria-pressed="true" data-face="front">Front cover</button>
+            <button type="button" aria-pressed="false" data-face="back">Back cover</button>
+          </div>
+        </div>
+        <div class="book-copy">
+          <h3>Lashed Up<span class="subtitle">A Collection of Poems</span></h3>
+          <p class="desc">Lashed Up gathers years of verse written in the open air — poems tied together, like knots in
+            old rope, by grief, wonder, and the slow work of coming undone and remaking oneself. Each page holds a
+            small, private prayer: for the ancient world we've forgotten, and the ordinary one we're still learning to
+            love.</p>
+          <div class="book-stores">
+            <a href="#" class="btn btn-store">Amazon</a>
+            <a href="#" class="btn btn-store">Everand</a>
+            <a href="#" class="btn btn-store">Barnes &amp; Noble</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== SERVICES ============================== -->
+  <div class="foil-edge"></div>
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Work With Peter</h2>
+        <p>Beyond his own writing, Peter works with authors who want their own manuscripts to land with the same warmth
+          and clarity.</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <svg class="icon" style="width:1.6rem;height:1.6rem;color:var(--gold-deep);margin-bottom:1rem;">
+            <use href="#icon-book" />
+          </svg>
+          <h3>Manuscript Assessments</h3>
+          <p class="desc">A read of your manuscript, responding with a detailed editorial letter on structure, pacing,
+            character, voice, and where the suspense is working — or isn't yet.</p>
+          <div class="service-price">
+            <span class="amount">From £250</span>
+            <span class="note">Full manuscript, up to 100,000 words</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <svg class="icon" style="width:1.6rem;height:1.6rem;color:var(--gold-deep);margin-bottom:1rem;">
+            <use href="#icon-feather" />
+          </svg>
+          <h3>Developmental Editing</h3>
+          <p class="desc">Collaboration for writers wanting a deeper edit — reshaping a draft, untangling timelines,
+            developing themes, and deepening the work chapter by chapter.</p>
+          <div class="service-price">
+            <span class="amount">From £750</span>
+            <span class="note">Scales with manuscript length and depth of notes</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <svg class="icon" style="width:1.6rem;height:1.6rem;color:var(--gold-deep);margin-bottom:1rem;">
+            <use href="#icon-mic" />
+          </svg>
+          <h3>Public Speaking</h3>
+          <p class="desc">Peter speaks at book clubs, festivals, libraries, and classrooms — on storytelling, the
+            ancient world, spiritual identity, and the experiences that push a writer to begin a book in the first
+            place.</p>
+
+          <div class="audio-player" data-audio-player>
+            <button type="button" class="audio-toggle" aria-label="Play a clip of Peter speaking">
+              <svg class="icon icon-play">
+                <use href="#icon-play" />
+              </svg>
+              <svg class="icon icon-pause">
+                <use href="#icon-pause" />
+              </svg>
+            </button>
+            <div class="audio-body">
+              <span class="audio-label">Hear Peter speak</span>
+              <input type="range" class="audio-seek" min="0" max="100" step="0.1" value="0"
+                aria-label="Seek audio clip">
+              <div class="audio-time">
+                <span class="audio-current">0:00</span>
+                <span class="audio-duration">0:00</span>
+              </div>
+            </div>
+            <audio class="audio-el" src="peter-speaking.m4a" preload="metadata"></audio>
+          </div>
+
+          <div class="service-price">
+            <span class="amount">From £250 per session</span>
+            <span class="note">Travel charged separately outside the local area</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <svg class="icon" style="width:1.6rem;height:1.6rem;color:var(--gold-deep);margin-bottom:1rem;">
+            <use href="#icon-compass" />
+          </svg>
+          <h3>Ghost Writing</h3>
+          <p class="desc">Full ghost writing for clients who have a story but not the time or craft to write it alone —
+            a collaborative process that keeps the finished book sounding like you.</p>
+          <div class="service-price">
+            <span class="amount">From £5,000</span>
+            <span class="note">Full-length novel, final quote after consultation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== CONTACT ============================== -->
+  <div class="foil-edge"></div>
+  <section class="contact on-dark" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Get in Touch</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>Whether you're a reader, a fellow writer, an event organiser, or simply someone the words found at the
+            right moment — Peter reads every message himself.</p>
+          <div class="contact-detail">
+            <a href="mailto:contact@peterfwolfson.co.uk">
+              <svg class="icon">
+                <use href="#icon-mail" />
+              </svg>
+              contact@peterfwolfson.co.uk
+            </a>
+            <small>Speaking, festivals &amp; media enquiries welcome</small>
+            <span>
+              <svg class="icon">
+                <use href="#icon-compass" />
+              </svg>
+              www.peterfwolfson.co.uk
+            </span>
+          </div>
+        </div>
+
+        <form class="form-card" id="contactForm" novalidate>
+          <div class="field" id="fieldName">
+            <label for="cf-name">Full Name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name">
+            <p class="field-error">Please enter your name.</p>
+          </div>
+          <div class="field" id="fieldEmail">
+            <label for="cf-email">Email Address</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email">
+            <p class="field-error">Please enter a valid email address.</p>
+          </div>
+          <div class="field" id="fieldMessage">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message"></textarea>
+            <p class="field-error">Please add a short message.</p>
+          </div>
+          <div class="form-foot">
+            <button type="submit" class="btn btn-solid">Send Message</button>
+            <span class="form-note">This form isn't yet connected to an inbox — link it to your preferred form handler
+              before publishing.</span>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <svg class="icon">
+              <use href="#icon-check" />
+            </svg>
+            Thank you — your message has been noted. Peter will reply soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="foil-edge"></div>
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-brand">
+        <svg class="icon">
+          <use href="#icon-feather" />
+        </svg>
+        PETER F. WOLFSON
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#books">Books</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer-url">WWW.PETERFWOLFSON.CO.UK</p>
+      <p class="footer-copy">© 2026 Peter F. Wolfson. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* Sticky nav shadow on scroll */
+      var nav = document.getElementById('siteNav');
+      var onScroll = function () {
+        if (window.scrollY > 12) { nav.classList.add('is-scrolled'); }
+        else { nav.classList.remove('is-scrolled'); }
+      };
+      document.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* Mobile nav toggle */
+      var toggle = document.getElementById('navToggle');
+      var mobile = document.getElementById('navMobile');
+      toggle.addEventListener('click', function () {
+        var isOpen = document.body.classList.toggle('menu-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+      mobile.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          document.body.classList.remove('menu-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      /* Audio player(s) */
+      function formatTime(sec) {
+        if (!isFinite(sec)) return '0:00';
+        var m = Math.floor(sec / 60);
+        var s = Math.floor(sec % 60);
+        return m + ':' + (s < 10 ? '0' : '') + s;
+      }
+      document.querySelectorAll('[data-audio-player]').forEach(function (player) {
+        var audio = player.querySelector('.audio-el');
+        var toggle = player.querySelector('.audio-toggle');
+        var seek = player.querySelector('.audio-seek');
+        var current = player.querySelector('.audio-current');
+        var duration = player.querySelector('.audio-duration');
+        var seeking = false;
+
+        audio.addEventListener('loadedmetadata', function () {
+          seek.max = audio.duration;
+          duration.textContent = formatTime(audio.duration);
+        });
+        audio.addEventListener('timeupdate', function () {
+          if (seeking) return;
+          seek.value = audio.currentTime;
+          current.textContent = formatTime(audio.currentTime);
+        });
+        audio.addEventListener('ended', function () {
+          player.classList.remove('is-playing');
+          toggle.setAttribute('aria-label', 'Play a clip of Peter speaking');
+        });
+
+        toggle.addEventListener('click', function () {
+          if (audio.paused) {
+            document.querySelectorAll('.audio-el').forEach(function (a) { if (a !== audio) a.pause(); });
+            document.querySelectorAll('[data-audio-player]').forEach(function (p) { if (p !== player) p.classList.remove('is-playing'); });
+            audio.play();
+            player.classList.add('is-playing');
+            toggle.setAttribute('aria-label', 'Pause');
+          } else {
+            audio.pause();
+            player.classList.remove('is-playing');
+            toggle.setAttribute('aria-label', 'Play a clip of Peter speaking');
+          }
+        });
+
+        seek.addEventListener('input', function () {
+          seeking = true;
+          current.textContent = formatTime(Number(seek.value));
+        });
+        seek.addEventListener('change', function () {
+          audio.currentTime = Number(seek.value);
+          seeking = false;
+        });
+      });
+
+      /* Book flip toggles */
+      document.querySelectorAll('.book-toggle').forEach(function (group) {
+        var targetId = group.getAttribute('data-flip-target');
+        var flipEl = document.getElementById(targetId);
+        var buttons = group.querySelectorAll('button');
+        buttons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var showBack = btn.getAttribute('data-face') === 'back';
+            flipEl.classList.toggle('is-flipped', showBack);
+            buttons.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+          });
+        });
+        /* clicking the cover itself also flips it */
+        flipEl.addEventListener('click', function () {
+          var isFlipped = flipEl.classList.toggle('is-flipped');
+          buttons.forEach(function (b) {
+            b.setAttribute('aria-pressed', (b.getAttribute('data-face') === (isFlipped ? 'back' : 'front')) ? 'true' : 'false');
+          });
+        });
+        flipEl.style.cursor = 'pointer';
+      });
+
+      /* Contact form validation */
+      var form = document.getElementById('contactForm');
+      var success = document.getElementById('formSuccess');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = document.getElementById('cf-name');
+        var email = document.getElementById('cf-email');
+        var message = document.getElementById('cf-message');
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        var valid = true;
+
+        toggleError('fieldName', name.value.trim().length === 0);
+        toggleError('fieldEmail', !emailPattern.test(email.value.trim()));
+        toggleError('fieldMessage', message.value.trim().length === 0);
+
+        function toggleError(fieldId, hasError) {
+          var field = document.getElementById(fieldId);
+          field.classList.toggle('has-error', hasError);
+          if (hasError) { valid = false; }
+        }
+
+        if (!valid) {
+          success.classList.remove('is-visible');
+          return;
+        }
+
+        success.classList.add('is-visible');
+        form.reset();
+        ['fieldName', 'fieldEmail', 'fieldMessage'].forEach(function (id) {
+          document.getElementById(id).classList.remove('has-error');
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
