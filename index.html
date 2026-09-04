@@ -1651,11 +1651,11 @@
           <p>Whether you're a reader, a fellow writer, an event organiser, or simply someone the words found at the
             right moment — Peter reads every message himself.</p>
           <div class="contact-detail">
-            <a href="mailto:contact@peterfwolfson.co.uk">
+            <a href="mailto:pfwolfson@protonmail.ch">
               <svg class="icon">
                 <use href="#icon-mail" />
               </svg>
-              contact@peterfwolfson.co.uk
+              pfwolfson@protonmail.ch
             </a>
             <small>Speaking, festivals &amp; media enquiries welcome</small>
 
@@ -1810,13 +1810,11 @@
       var success = document.getElementById('formSuccess');
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        var name = document.getElementById('cf-name');
         var email = document.getElementById('cf-email');
         var message = document.getElementById('cf-message');
         var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         var valid = true;
 
-        toggleError('fieldName', name.value.trim().length === 0);
         toggleError('fieldEmail', !emailPattern.test(email.value.trim()));
         toggleError('fieldMessage', message.value.trim().length === 0);
 
@@ -1833,7 +1831,7 @@
 
         success.classList.add('is-visible');
         form.reset();
-        ['fieldName', 'fieldEmail', 'fieldMessage'].forEach(function (id) {
+        ['fieldEmail', 'fieldMessage'].forEach(function (id) {
           document.getElementById(id).classList.remove('has-error');
         });
       });
