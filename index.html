@@ -27,6 +27,8 @@
       --gold-deep: #8C6530;
       --gold-light: #D9BA88;
       --sunset: #C97C4C;
+      --burnt-orange: #C1440E;
+      --burnt-orange-deep: #9C360A;
       --shadow: rgba(30, 19, 8, 0.22);
       --shadow-soft: rgba(30, 19, 8, 0.12);
 
@@ -575,6 +577,58 @@
       }
     }
 
+    /* PEN BANNER */
+    .pen-banner {
+      position: relative;
+      overflow: hidden;
+      height: clamp(200px, 30vw, 380px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ink);
+    }
+
+    .pen-banner-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .pen-banner-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 55%;
+      filter: sepia(0.45) saturate(1.15) contrast(1.05) brightness(0.78);
+      transform: scale(1.02);
+    }
+
+    .pen-banner-veil {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(28, 17, 8, 0.92) 0%, rgba(28, 17, 8, 0.35) 30%, rgba(28, 17, 8, 0.35) 70%, rgba(28, 17, 8, 0.92) 100%),
+        linear-gradient(180deg, rgba(28, 17, 8, 0.3) 0%, rgba(28, 17, 8, 0.15) 40%, rgba(28, 17, 8, 0.55) 100%);
+    }
+
+    .pen-banner-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .pen-banner-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold-light);
+      font-size: clamp(1.25rem, 3vw, 2.05rem);
+      letter-spacing: 0.01em;
+      max-width: 22ch;
+      margin: 0 auto;
+      text-shadow: 0 6px 26px rgba(0, 0, 0, 0.45);
+    }
+
     /* ABOUT */
     .about {
       background: var(--paper);
@@ -600,6 +654,19 @@
       background: var(--ink);
       padding: 10px;
       box-shadow: 0 30px 55px -24px var(--shadow), 0 6px 16px -8px var(--shadow-soft);
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-photo-frame::before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      width: 100%;
+      height: 100%;
+      background: var(--burnt-orange);
+      z-index: -1;
     }
 
     .about-photo-placeholder {
@@ -634,6 +701,18 @@
       color: var(--paper-white);
       padding: clamp(1.8rem, 3vw, 2.3rem);
       position: relative;
+      z-index: 1;
+    }
+
+    .pull-card::after {
+      content: "";
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 100%;
+      height: 100%;
+      background: var(--burnt-orange);
+      z-index: -1;
     }
 
     .pull-card .icon {
@@ -673,6 +752,12 @@
       margin-bottom: 0;
     }
 
+    .about-copy .pull-card {
+      margin-top: 2.2rem;
+      max-width: 46ch;
+      margin-left: auto;
+    }
+
     @media (max-width: 900px) {
       .about-grid {
         grid-template-columns: 1fr;
@@ -697,6 +782,14 @@
 
       .about-photo-frame {
         width: min(260px, 70vw);
+      }
+
+      .about-photo-frame::before,
+      .pull-card::after {
+        top: -10px;
+        left: -10px;
+        bottom: -10px;
+        right: -10px;
       }
     }
 
@@ -1331,7 +1424,20 @@
       </div>
     </div>
     <div class="hero-band">
-      <p class="hero-tagline">inspiring words&nbsp;&nbsp;·&nbsp;&nbsp;in peace&nbsp;&nbsp;·&nbsp;&nbsp;connected ideas</p>
+      <p class="hero-tagline">inspiring words&nbsp;&nbsp;·&nbsp;&nbsp;in peace&nbsp;&nbsp;·&nbsp;&nbsp;connected ideas
+      </p>
+    </div>
+  </section>
+
+  <section class="pen-banner" aria-label="A fountain pen, Peter's instrument of choice">
+    <div class="pen-banner-media">
+      <img src="PetersPenBanner.png" alt="A silver fountain pen with its cap resting beside it on a wooden desk">
+      <div class="pen-banner-veil"></div>
+    </div>
+    <div class="wrap pen-banner-content">
+      <p class="pen-banner-quote">...You could spend a lifetime looking for the perfect blossom, and it would not be a
+        wasted life...
+      </p>
     </div>
   </section>
 
@@ -1348,13 +1454,6 @@
               <img src="quill-icon.png" alt="">
               <span>Author photograph — coming soon</span>
             </div>
-          </div>
-          <div class="pull-card">
-            <svg class="icon">
-              <use href="#icon-quote" />
-            </svg>
-            <blockquote>Become the love you wish to see in the world.</blockquote>
-            <cite>PETER F. WOLFSON</cite>
           </div>
         </div>
 
@@ -1376,6 +1475,14 @@
             to seek out spiritual matters, truth, and the divine love he knows, resides in us all.</p>
           <p>Alongside his spiritual non fiction, Peter also writes fiction, and where a fable serves better than an
             argument, he lets the story carry the idea instead.</p>
+
+          <div class="pull-card">
+            <svg class="icon">
+              <use href="#icon-quote" />
+            </svg>
+            <blockquote>Become the love you wish to see in the world.</blockquote>
+            <cite>PETER F. WOLFSON</cite>
+          </div>
         </div>
       </div>
     </div>
