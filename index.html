@@ -577,62 +577,33 @@
       }
     }
 
-    /* PEN BANNER */
-    .pen-banner {
-      position: relative;
-      overflow: hidden;
-      height: clamp(200px, 30vw, 380px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--ink);
-    }
 
-    .pen-banner-media {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .pen-banner-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 55%;
-      filter: sepia(0.45) saturate(1.15) contrast(1.05) brightness(0.78);
-      transform: scale(1.02);
-    }
-
-    .pen-banner-veil {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(28, 17, 8, 0.92) 0%, rgba(28, 17, 8, 0.35) 30%, rgba(28, 17, 8, 0.35) 70%, rgba(28, 17, 8, 0.92) 100%),
-        linear-gradient(180deg, rgba(28, 17, 8, 0.3) 0%, rgba(28, 17, 8, 0.15) 40%, rgba(28, 17, 8, 0.55) 100%);
-    }
-
-    .pen-banner-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-
-    .pen-banner-quote {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--gold-light);
-      font-size: clamp(1.25rem, 3vw, 2.05rem);
-      letter-spacing: 0.01em;
-      max-width: 22ch;
-      margin: 0 auto;
-      text-shadow: 0 6px 26px rgba(0, 0, 0, 0.45);
-    }
 
     /* ABOUT */
     .about {
       background: var(--paper);
       padding: clamp(4rem, 8vw, 6.5rem) 0;
+      position: relative;
+    }
+
+    .about::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: clamp(20px, 5vw, 60px);
+      height: clamp(200px, 30vw, 400px);
+      background: var(--burnt-orange);
+    }
+
+    .about::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: clamp(200px, 30vw, 400px);
+      height: clamp(20px, 5vw, 60px);
+      background: var(--burnt-orange);
     }
 
     .about-grid {
@@ -656,17 +627,6 @@
       box-shadow: 0 30px 55px -24px var(--shadow), 0 6px 16px -8px var(--shadow-soft);
       position: relative;
       z-index: 1;
-    }
-
-    .about-photo-frame::before {
-      content: "";
-      position: absolute;
-      top: -16px;
-      left: -16px;
-      width: 100%;
-      height: 100%;
-      background: var(--burnt-orange);
-      z-index: -1;
     }
 
     .about-photo-placeholder {
@@ -704,16 +664,7 @@
       z-index: 1;
     }
 
-    .pull-card::after {
-      content: "";
-      position: absolute;
-      bottom: -16px;
-      right: -16px;
-      width: 100%;
-      height: 100%;
-      background: var(--burnt-orange);
-      z-index: -1;
-    }
+
 
     .pull-card .icon {
       width: 1.7rem;
@@ -784,13 +735,7 @@
         width: min(260px, 70vw);
       }
 
-      .about-photo-frame::before,
-      .pull-card::after {
-        top: -10px;
-        left: -10px;
-        bottom: -10px;
-        right: -10px;
-      }
+
     }
 
     /* BOOKS (dark) */
@@ -1238,9 +1183,14 @@
 
     /* FOOTER */
     .site-footer {
-      background: #1C1108;
+      position: relative;
+      background-color: #1C1108;
+      background-image: linear-gradient(rgba(28, 17, 8, 0.75), rgba(28, 17, 8, 0.65)), url('PetersPenBanner.png');
+      background-size: cover;
+      background-position: center 60%;
+      background-repeat: no-repeat;
       color: var(--gold-light);
-      padding: 2.6rem 0;
+      padding: 4.6rem 0 3.6rem;
       text-align: center;
     }
 
@@ -1406,7 +1356,8 @@
         </p>
         <h1 class="reveal" style="animation-delay:.15s">Finding the light within, and returning it to the world.</h1>
         <p class="hero-lede reveal" style="animation-delay:.28s">Peter Francis Wolfson writes about the sacred thread
-          running through ordinary life — what the modern world has cost us, and the compassion we still carry the tools
+          running through ordinary life — what the modern world has cost us, and the innate compassion we still have the
+          power
           to reclaim. His mission is simple: to help people find their way back to love, meaning, and one another.</p>
         <div class="hero-actions reveal" style="animation-delay:.4s">
           <a href="#books" class="btn btn-solid">Explore the Work</a>
@@ -1425,18 +1376,6 @@
     </div>
     <div class="hero-band">
       <p class="hero-tagline">inspiring words&nbsp;&nbsp;·&nbsp;&nbsp;in peace&nbsp;&nbsp;·&nbsp;&nbsp;connected ideas
-      </p>
-    </div>
-  </section>
-
-  <section class="pen-banner" aria-label="A fountain pen, Peter's instrument of choice">
-    <div class="pen-banner-media">
-      <img src="PetersPenBanner.png" alt="A silver fountain pen with its cap resting beside it on a wooden desk">
-      <div class="pen-banner-veil"></div>
-    </div>
-    <div class="wrap pen-banner-content">
-      <p class="pen-banner-quote">...You could spend a lifetime looking for the perfect blossom, and it would not be a
-        wasted life...
       </p>
     </div>
   </section>
@@ -1519,9 +1458,8 @@
             Loving in the Age of Suffering offers a spiritual roadmap for navigating life's hardest valleys, with
             kindness, compassion, meaning, and with an unshakeable connection to the light.</p>
           <div class="book-stores">
-            <a href="#" class="btn btn-store">Amazon</a>
-            <a href="#" class="btn btn-store">Everand</a>
-            <a href="#" class="btn btn-store">Barnes &amp; Noble</a>
+            <span class="btn btn-store"
+              style="pointer-events: none; border-color: var(--gold-deep); color: var(--gold-light);">Coming Soon</span>
           </div>
         </div>
       </div>
@@ -1599,6 +1537,8 @@
       </div>
     </div>
   </section>
+
+
 
   <div class="foil-edge"></div>
   <section class="services" id="services">
