@@ -1370,7 +1370,8 @@
           power
           to reclaim. His mission is simple: to help people find their way back to love, meaning, and one another.</p>
         <p class="hero-lede reveal" style="animation-delay:.35s; font-size: 1.1rem; margin-top: 1rem;">
-          His work is a journey of exploration and self-discovery into where we are at personally, and how we can manifest that divine love in ourselves and the world around us.
+          His work is a journey of exploration and self-discovery into where we are at personally, and how we can
+          manifest that divine love in ourselves and the world around us.
         </p>
         <div class="hero-actions reveal" style="animation-delay:.4s">
           <a href="#books" class="btn btn-solid">Explore the Work</a>
@@ -1657,38 +1658,27 @@
               contact@peterfwolfson.co.uk
             </a>
             <small>Speaking, festivals &amp; media enquiries welcome</small>
-            <span>
-              <svg class="icon">
-                <use href="#icon-compass" />
-              </svg>
-              www.peterfwolfson.co.uk
-            </span>
+
           </div>
         </div>
 
-        <form class="form-card" id="contactForm" novalidate>
-          <div class="field-row">
-            <div class="field" id="fieldName">
-              <label for="cf-name">Full Name</label>
-              <input type="text" id="cf-name" name="name" autocomplete="name">
-              <p class="field-error">Please enter your name.</p>
-            </div>
-            <div class="field" id="fieldEmail">
-              <label for="cf-email">Email Address</label>
-              <input type="email" id="cf-email" name="email" autocomplete="email">
-              <p class="field-error">Please enter a valid email address.</p>
-            </div>
+        <form class="form-card" id="contactForm" action="https://formspree.io/f/mnpqzlda" method="POST" novalidate>
+          <div class="field" id="fieldEmail">
+            <label for="cf-email">Email Address</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email">
+            <p class="field-error">Please enter a valid email address.</p>
           </div>
+
           <div class="field" id="fieldMessage">
             <label for="cf-message">Message</label>
             <textarea id="cf-message" name="message"></textarea>
             <p class="field-error">Please add a short message.</p>
           </div>
+
           <div class="form-foot">
             <button type="submit" class="btn btn-solid">Send Message</button>
-            <span class="form-note">This form isn't yet connected to an inbox — link it to your preferred form handler
-              before publishing.</span>
           </div>
+
           <div class="form-success" id="formSuccess">
             <svg class="icon">
               <use href="#icon-check" />
