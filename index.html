@@ -7,8 +7,7 @@
   <title>Peter F. Wolfson — Author, Writer, Public Speaker</title>
   <meta name="description"
     content="Peter Francis Wolfson writes about the spiritual nature of mankind. Author of Loving in the Age of Suffering and Lashed Up.">
-  <link rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%232B1D10'/%3E%3Cpath d='M20.7 3.3c-4.4-.3-9.6 1.7-12.9 5-3.2 3.2-5.2 8.2-5.1 12.6.2 0 .4 0 .6 0 4.2-.1 8.9-2.1 12-5.2 3.3-3.3 5.3-8.5 5-12.9-.1-.2-.4-.5-.6-.5-4.9 1-9.4 3.4-12.7 6.7' fill='none' stroke='%23D9BA88' stroke-width='1.4' stroke-linejoin='round'/%3E%3Cpath d='M13.2 10.4L3.6 20' fill='none' stroke='%23D9BA88' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="quill-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +16,6 @@
     rel="stylesheet">
 
   <style>
-    /* ============================================================
-     TOKENS
-  ============================================================ */
     :root {
       --paper: #F3E7D5;
       --paper-deep: #E9D8BF;
@@ -79,7 +75,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* faint paper grain, echoes the card stock */
     body::before {
       content: "";
       position: fixed;
@@ -134,7 +129,6 @@
       scroll-margin-top: 84px;
     }
 
-    /* thin foil-stamped edge, echoes the card stock where light meets dark */
     .foil-edge {
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--gold) 18%, var(--gold-light) 50%, var(--gold) 82%, transparent);
@@ -156,6 +150,25 @@
       margin: 0 auto;
       padding-left: var(--edge);
       padding-right: var(--edge);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6em;
+      font-family: var(--font-mark);
+      font-size: 0.98rem;
+      letter-spacing: 0.22em;
+      color: var(--gold-deep);
+      font-weight: 600;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--gold-deep);
+      display: inline-block;
     }
 
     .section-head {
@@ -235,8 +248,8 @@
       background: transparent;
       color: var(--paper-white);
       border-color: rgba(251, 245, 234, 0.35);
-      padding: 0.7em 1.4em;
-      font-size: 0.92rem;
+      padding: 0.65em 1.15em;
+      font-size: 0.86rem;
     }
 
     .btn-store:hover {
@@ -251,9 +264,7 @@
       flex-shrink: 0;
     }
 
-    /* ============================================================
-     NAV
-  ============================================================ */
+    /* NAV */
     .nav {
       position: sticky;
       top: 0;
@@ -284,10 +295,10 @@
       color: var(--ink);
     }
 
-    .brand .icon {
-      width: 1.5rem;
-      height: 1.5rem;
-      color: var(--gold-deep);
+    .brand .brand-icon {
+      width: 1.9rem;
+      height: auto;
+      display: block;
     }
 
     .brand-name {
@@ -363,9 +374,10 @@
       margin-bottom: 2.4rem;
     }
 
-    .nav-mobile-brand .icon {
-      width: 1.3rem;
-      height: 1.3rem;
+    .nav-mobile-brand .brand-icon {
+      width: 1.6rem;
+      height: auto;
+      display: block;
     }
 
     .nav-mobile ul {
@@ -407,9 +419,7 @@
       }
     }
 
-    /* ============================================================
-     HERO
-  ============================================================ */
+    /* HERO */
     .hero {
       background: var(--paper);
       padding-top: clamp(3rem, 7vw, 5.5rem);
@@ -428,12 +438,6 @@
       font-size: clamp(2.5rem, 5.4vw, 4.1rem);
       line-height: 1.08;
       letter-spacing: -0.015em;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      font-weight: 500;
-      color: var(--gold-deep);
     }
 
     .hero-lede {
@@ -528,11 +532,15 @@
       letter-spacing: 0.01em;
     }
 
-    .hero-band .icon {
-      width: 1.1rem;
-      height: 1.1rem;
-      color: var(--gold-light);
-      flex-shrink: 0;
+    .hero-tagline {
+      font-family: var(--font-mark) !important;
+      font-style: normal !important;
+      font-weight: 500 !important;
+      font-size: clamp(0.85rem, 1.5vw, 1.05rem) !important;
+      letter-spacing: 0.22em !important;
+      text-transform: uppercase;
+      color: var(--gold-light) !important;
+      white-space: nowrap;
     }
 
     @media (max-width: 900px) {
@@ -567,18 +575,92 @@
       }
     }
 
-    /* ============================================================
-     ABOUT
-  ============================================================ */
+    /* ABOUT */
     .about {
       background: var(--paper);
-      padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+      padding: clamp(4rem, 8vw, 6.5rem) 0;
     }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: clamp(2.5rem, 5vw, 4.5rem);
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: clamp(2.5rem, 5vw, 4rem);
+      align-items: start;
+    }
+
+    .about-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      position: sticky;
+      top: 110px;
+    }
+
+    .about-photo-frame {
+      background: var(--ink);
+      padding: 10px;
+      box-shadow: 0 30px 55px -24px var(--shadow), 0 6px 16px -8px var(--shadow-soft);
+    }
+
+    .about-photo-placeholder {
+      aspect-ratio: 4 / 5;
+      background: var(--paper-deep);
+      border: 1px dashed rgba(43, 29, 16, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .about-photo-placeholder img {
+      width: 2.4rem;
+      height: auto;
+      opacity: 0.75;
+    }
+
+    .about-photo-placeholder span {
+      font-family: var(--font-mark);
+      font-style: italic;
+      font-size: 0.98rem;
+      color: var(--ink-faint);
+      max-width: 18ch;
+    }
+
+    .pull-card {
+      background: var(--ink);
+      color: var(--paper-white);
+      padding: clamp(1.8rem, 3vw, 2.3rem);
+      position: relative;
+    }
+
+    .pull-card .icon {
+      width: 1.7rem;
+      height: 1.7rem;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+
+    .pull-card blockquote {
+      margin: 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      line-height: 1.35;
+      color: var(--paper-white);
+    }
+
+    .pull-card cite {
+      display: block;
+      margin-top: 1.2rem;
+      font-style: normal;
+      font-family: var(--font-mark);
+      letter-spacing: 0.14em;
+      font-size: 0.88rem;
+      color: var(--gold-light);
     }
 
     .about-copy p {
@@ -591,54 +673,38 @@
       margin-bottom: 0;
     }
 
-    .pull-card {
-      background: var(--ink);
-      color: var(--paper-white);
-      padding: clamp(2.2rem, 4vw, 3rem);
-      align-self: start;
-      position: relative;
-    }
-
-    .pull-card .icon {
-      width: 2rem;
-      height: 2rem;
-      color: var(--gold-light);
-      margin-bottom: 1.2rem;
-    }
-
-    .pull-card blockquote {
-      margin: 0;
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(1.4rem, 2.4vw, 1.75rem);
-      line-height: 1.35;
-      color: var(--paper-white);
-    }
-
-    .pull-card cite {
-      display: block;
-      margin-top: 1.4rem;
-      font-style: normal;
-      font-family: var(--font-mark);
-      letter-spacing: 0.14em;
-      font-size: 0.92rem;
-      color: var(--gold-light);
-    }
-
     @media (max-width: 900px) {
       .about-grid {
         grid-template-columns: 1fr;
       }
+
+      .about-side {
+        position: static;
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      .about-photo-frame {
+        width: min(220px, 55vw);
+        flex-shrink: 0;
+      }
     }
 
-    /* ============================================================
-     BOOKS  (dark)
-  ============================================================ */
+    @media (max-width: 560px) {
+      .about-side {
+        flex-direction: column;
+      }
+
+      .about-photo-frame {
+        width: min(260px, 70vw);
+      }
+    }
+
+    /* BOOKS (dark) */
     .books {
       background: var(--ink);
       color: var(--paper-white);
-      padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+      padding: clamp(4rem, 8vw, 6.5rem) 0;
     }
 
     .books .section-head h2 {
@@ -676,6 +742,7 @@
       width: min(300px, 72vw);
       aspect-ratio: 357/539;
       perspective: 1800px;
+      cursor: pointer;
     }
 
     .book-flip-inner {
@@ -760,8 +827,8 @@
     .book-stores {
       margin-top: 1.8rem;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
+      flex-wrap: nowrap;
+      gap: 0.55rem;
     }
 
     @media (max-width: 780px) {
@@ -781,53 +848,50 @@
       }
     }
 
-    /* ============================================================
-     SERVICES
-  ============================================================ */
+    /* SERVICES */
     .services {
       background: var(--paper);
-      padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+      padding: clamp(3rem, 6vw, 5rem) 0;
     }
 
     .service-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: rgba(43, 29, 16, 0.16);
-      border: 1px solid rgba(43, 29, 16, 0.16);
+      gap: clamp(1.3rem, 2.6vw, 2rem);
     }
 
     .service-card {
-      background: var(--paper);
-      padding: clamp(2.2rem, 3.4vw, 2.8rem);
+      background: var(--paper-white);
+      border: 1px solid rgba(43, 29, 16, 0.14);
+      padding: clamp(1.15rem, 2vw, 1.5rem);
       display: flex;
       flex-direction: column;
       min-height: 100%;
     }
 
     .service-card h3 {
-      font-size: 1.45rem;
-      margin-bottom: 0.7em;
+      font-size: 1.12rem;
+      margin-bottom: 0.5em;
     }
 
     .service-card p.desc {
       color: var(--ink-soft);
-      font-size: 1.03rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
       flex-grow: 1;
     }
 
     .audio-player {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
-      margin-top: 1.1rem;
-      cursor: pointer;
+      gap: 0.6rem;
+      margin-top: 0.9rem;
     }
 
     .audio-toggle {
       flex-shrink: 0;
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       background: var(--ink);
       color: var(--gold-light);
@@ -845,8 +909,8 @@
     }
 
     .audio-toggle .icon {
-      width: 0.8rem;
-      height: 0.8rem;
+      width: 0.72rem;
+      height: 0.72rem;
     }
 
     .audio-toggle .icon-pause {
@@ -872,15 +936,15 @@
     .audio-time {
       flex-shrink: 0;
       font-family: var(--font-mark);
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       letter-spacing: 0.02em;
       color: var(--ink-faint);
       white-space: nowrap;
     }
 
     .service-price {
-      margin-top: 1.6rem;
-      padding-top: 1.2rem;
+      margin-top: 1rem;
+      padding-top: 0.85rem;
       border-top: 1px solid rgba(43, 29, 16, 0.14);
       display: flex;
       flex-direction: column;
@@ -888,15 +952,15 @@
 
     .service-price .amount {
       font-family: var(--font-display);
-      font-size: 1.3rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--gold-deep);
     }
 
     .service-price .note {
-      font-size: 0.92rem;
+      font-size: 0.76rem;
       color: var(--ink-faint);
-      margin-top: 0.25em;
+      margin-top: 0.2em;
     }
 
     @media (max-width: 640px) {
@@ -905,13 +969,11 @@
       }
     }
 
-    /* ============================================================
-     CONTACT (dark)
-  ============================================================ */
+    /* CONTACT (dark) */
     .contact {
       background: var(--ink);
       color: var(--paper-white);
-      padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+      padding: clamp(3rem, 6vw, 5rem) 0;
     }
 
     .contact .section-head h2 {
@@ -920,38 +982,38 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: clamp(2.5rem, 5vw, 5rem);
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: clamp(2rem, 4vw, 3.5rem);
     }
 
     .contact-info p {
       color: #D8C6AE;
-      font-size: 1.08rem;
+      font-size: 1rem;
       max-width: 40ch;
     }
 
     .contact-detail {
-      margin-top: 2.2rem;
+      margin-top: 1.6rem;
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
+      gap: 0.9rem;
     }
 
     .contact-detail a,
     .contact-detail span {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 0.7rem;
       font-family: var(--font-mark);
-      font-size: 1.1rem;
+      font-size: 1.02rem;
       letter-spacing: 0.03em;
       color: var(--paper-white);
       text-decoration: none;
     }
 
     .contact-detail .icon {
-      width: 1.2rem;
-      height: 1.2rem;
+      width: 1.1rem;
+      height: 1.1rem;
       color: var(--gold-light);
     }
 
@@ -963,28 +1025,34 @@
       display: block;
       color: var(--ink-faint);
       font-family: var(--font-body);
-      font-size: 0.92rem;
-      margin-top: -0.6rem;
-      padding-left: 2rem;
+      font-size: 0.86rem;
+      margin-top: -0.4rem;
+      padding-left: 1.8rem;
     }
 
     .form-card {
       background: var(--paper-white);
       color: var(--ink);
-      padding: clamp(2rem, 4vw, 2.8rem);
+      padding: clamp(1.4rem, 3vw, 1.9rem);
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
     }
 
     .field {
-      margin-bottom: 1.4rem;
+      margin-bottom: 1rem;
     }
 
     .field label {
       display: block;
       font-family: var(--font-mark);
-      font-size: 0.98rem;
+      font-size: 0.92rem;
       letter-spacing: 0.05em;
       color: var(--ink-soft);
-      margin-bottom: 0.5em;
+      margin-bottom: 0.4em;
     }
 
     .field input,
@@ -993,16 +1061,16 @@
       background: transparent;
       border: none;
       border-bottom: 1px solid rgba(43, 29, 16, 0.28);
-      padding: 0.6em 0.1em;
+      padding: 0.5em 0.1em;
       font-family: var(--font-body);
-      font-size: 1.08rem;
+      font-size: 1.02rem;
       color: var(--ink);
       resize: vertical;
       transition: border-color .3s ease;
     }
 
     .field textarea {
-      min-height: 110px;
+      min-height: 62px;
     }
 
     .field input:focus,
@@ -1019,8 +1087,8 @@
     .field-error {
       display: none;
       color: #A6402C;
-      font-size: 0.85rem;
-      margin-top: 0.4em;
+      font-size: 0.82rem;
+      margin-top: 0.35em;
     }
 
     .field.has-error .field-error {
@@ -1030,26 +1098,27 @@
     .form-foot {
       display: flex;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1.1rem;
       flex-wrap: wrap;
-      margin-top: 0.6rem;
+      margin-top: 0.3rem;
     }
 
     .form-note {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--ink-faint);
     }
 
     .form-success {
       display: none;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.6rem;
       background: rgba(168, 121, 60, 0.12);
       border: 1px solid rgba(168, 121, 60, 0.35);
-      padding: 1rem 1.2rem;
+      padding: 0.8rem 1rem;
       font-family: var(--font-mark);
       color: var(--gold-deep);
-      margin-top: 1.2rem;
+      margin-top: 1rem;
+      font-size: 0.94rem;
     }
 
     .form-success.is-visible {
@@ -1057,8 +1126,8 @@
     }
 
     .form-success .icon {
-      width: 1.2rem;
-      height: 1.2rem;
+      width: 1.1rem;
+      height: 1.1rem;
       flex-shrink: 0;
     }
 
@@ -1068,9 +1137,13 @@
       }
     }
 
-    /* ============================================================
-     FOOTER
-  ============================================================ */
+    @media (max-width: 520px) {
+      .field-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* FOOTER */
     .site-footer {
       background: #1C1108;
       color: var(--gold-light);
@@ -1088,9 +1161,10 @@
       font-size: 1rem;
     }
 
-    .footer-brand .icon {
-      width: 1.2rem;
-      height: 1.2rem;
+    .footer-brand .brand-icon {
+      width: 1.5rem;
+      height: auto;
+      display: block;
     }
 
     .footer-nav {
@@ -1126,9 +1200,6 @@
       color: rgba(217, 186, 136, 0.4);
     }
 
-    /* ============================================================
-     REVEAL ANIMATION (hero only, single orchestrated sequence)
-  ============================================================ */
     .reveal {
       opacity: 0;
       transform: translateY(16px);
@@ -1146,14 +1217,7 @@
 
 <body>
 
-  <!-- ICON SPRITES -->
   <svg style="display:none" aria-hidden="true">
-    <symbol id="icon-feather" viewBox="0 0 24 24">
-      <path
-        d="M20.7 3.3c-4.4-.3-9.6 1.7-12.9 5-3.2 3.2-5.2 8.2-5.1 12.6.2 0 .4 0 .6 0 4.2-.1 8.9-2.1 12-5.2 3.3-3.3 5.3-8.5 5-12.9-.1-.2-.4-.5-.6-.5-4.9 1-9.4 3.4-12.7 6.7"
-        fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
-      <path d="M13.2 10.4L3.6 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
-    </symbol>
     <symbol id="icon-quote" viewBox="0 0 24 24">
       <path
         d="M9.5 6C6.5 7.3 4.7 9.7 4.7 12.7c0 2.4 1.6 4 3.6 4 1.7 0 3-1.3 3-2.9 0-1.5-1.1-2.6-2.5-2.7.3-1.6 1.6-3 3.3-3.7L9.5 6zm9.3 0c-3 1.3-4.8 3.7-4.8 6.7 0 2.4 1.6 4 3.6 4 1.7 0 3-1.3 3-2.9 0-1.5-1.1-2.6-2.5-2.7.3-1.6 1.6-3 3.3-3.7L18.8 6z"
@@ -1164,6 +1228,12 @@
         stroke-linejoin="round" />
       <path d="M20 5c-2.2-1-5.3-1-8 0v14c2.7-1 5.8-1 8 0V5z" fill="none" stroke="currentColor" stroke-width="1.3"
         stroke-linejoin="round" />
+    </symbol>
+    <symbol id="icon-feather" viewBox="0 0 24 24">
+      <path
+        d="M20.7 3.3c-4.4-.3-9.6 1.7-12.9 5-3.2 3.2-5.2 8.2-5.1 12.6.2 0 .4 0 .6 0 4.2-.1 8.9-2.1 12-5.2 3.3-3.3 5.3-8.5 5-12.9-.1-.2-.4-.5-.6-.5-4.9 1-9.4 3.4-12.7 6.7"
+        fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
+      <path d="M13.2 10.4L3.6 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
     </symbol>
     <symbol id="icon-mic" viewBox="0 0 24 24">
       <path d="M12 15a3 3 0 003-3V6a3 3 0 10-6 0v6a3 3 0 003 3z" fill="none" stroke="currentColor" stroke-width="1.3" />
@@ -1198,13 +1268,10 @@
     </symbol>
   </svg>
 
-  <!-- ============================== NAV ============================== -->
   <header class="nav" id="siteNav">
     <div class="wrap nav-row">
       <a href="#home" class="brand">
-        <svg class="icon">
-          <use href="#icon-feather" />
-        </svg>
+        <img class="brand-icon" src="quill-icon.png" alt="">
         <span class="brand-name">Peter&nbsp;F.&nbsp;Wolfson</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
@@ -1227,9 +1294,7 @@
 
   <div class="nav-mobile" id="navMobile">
     <div class="nav-mobile-brand">
-      <svg class="icon">
-        <use href="#icon-feather" />
-      </svg>
+      <img class="brand-icon" src="quill-icon.png" alt="">
       PETER F. WOLFSON
     </div>
     <ul>
@@ -1241,10 +1306,10 @@
     </ul>
   </div>
 
-  <!-- ============================== HERO ============================== -->
   <section class="hero" id="home">
     <div class="wrap hero-grid">
       <div class="hero-copy">
+        <p class="eyebrow reveal" style="animation-delay:.05s">Author &nbsp;·&nbsp; Writer &nbsp;·&nbsp; Public Speaker
         </p>
         <h1 class="reveal" style="animation-delay:.15s">Finding the light within, and returning it to the world.</h1>
         <p class="hero-lede reveal" style="animation-delay:.28s">Peter Francis Wolfson writes about the sacred thread
@@ -1266,14 +1331,10 @@
       </div>
     </div>
     <div class="hero-band">
-      <svg class="icon">
-        <use href="#icon-compass" />
-      </svg>
-      <p>"In the age of suffering, love is the light that endures."</p>
+      <p class="hero-tagline">inspiring words&nbsp;&nbsp;·&nbsp;&nbsp;in peace&nbsp;&nbsp;·&nbsp;&nbsp;connected ideas</p>
     </div>
   </section>
 
-  <!-- ============================== ABOUT ============================== -->
   <section class="about" id="about">
     <div class="wrap">
       <div class="section-head">
@@ -1281,37 +1342,45 @@
       </div>
 
       <div class="about-grid">
-        <div class="about-copy">
-          <p>Peter Francis Wolfson is a British author who writes about the spiritual nature of mankind. His books
-            examine our connection with the divine nature interwoven within ourselves, what we have lost in a modern,
-            automated way of living, and how to better use the gifts we have inherited from time immemorial — so that we
-            might live in a way that is more compassionate to every living thing, and to the planet itself.</p>
-          <p>Beginning with <em>The Age of Suffering</em>, the first of his books to examine this divine identity, and
-            born from watching a world constantly in turmoil and a desire to turn hearts back toward love, the series
-            has become his deeper exploration of mankind's spiritual identity — a path back to ancient and divine
-            operating principles, and how to manifest and repurpose them for the modern day.</p>
-          <p>Away from his writing, Peter enjoys public speaking, hiking, and music, and is learning to play the
-            svarmandal, a very old instrument from the Indian subcontinent. His passion for the ancient world arose from
-            a degree in Mediaeval and Classical History, and he has spent years exploring castles and ancient sites both
-            in the UK and abroad. Five years spent as a travelling storyteller gave him a deep respect for the spoken
-            word, while time among monks, pagans, druids, and even a Native American shaman shaped his desire to seek
-            out spiritual matters wherever they are still kept alive.</p>
-          <p>Alongside his spiritual non-fiction, Peter also writes fiction, and where a fable serves better than an
-            argument, he lets the story carry the idea instead.</p>
+        <div class="about-side">
+          <div class="about-photo-frame">
+            <div class="about-photo-placeholder">
+              <img src="quill-icon.png" alt="">
+              <span>Author photograph — coming soon</span>
+            </div>
+          </div>
+          <div class="pull-card">
+            <svg class="icon">
+              <use href="#icon-quote" />
+            </svg>
+            <blockquote>Become the love you wish to see in the world.</blockquote>
+            <cite>PETER F. WOLFSON</cite>
+          </div>
         </div>
 
-        <div class="pull-card">
-          <svg class="icon">
-            <use href="#icon-quote" />
-          </svg>
-          <blockquote>Become the love you wish to see in the world.</blockquote>
-          <cite>PETER F. WOLFSON</cite>
+        <div class="about-copy">
+          <p>Peter Wolfson is a British Author who writes about the spiritual nature of mankind. His books examine our
+            connection with the divine nature interwoven within ourselves, what we have lost in a modern automated &amp;
+            material way of living, and how to better manifest the spiritual love we were gifted from time immemorial -
+            so that we might live in a way that is kinder and more compassionate to every living thing, and to the
+            planet itself.</p>
+          <p>Beginning with <em>The Age of Suffering</em>, the first of his books to examine this divine identity, and
+            born from watching a world constantly in turmoil and a desire to turn hearts back towards love, the series
+            will become his deeper exploration of mankind's spiritual identity - a road map back to ancient and divine
+            operating principles, and how to manifest and repurpose them for the present day.</p>
+          <p>Away from writing, Peter enjoys public speaking, hiking and music, and is learning to play a Svarmandal, a
+            very ancient instrument from the Indian subcontinent. His passion for the ancient world arose from a degree
+            in Medieval &amp; Classical History, and he has spent years exploring castles and ancient sites both in the
+            UK and abroad. Five years spent as a harper and travelling storyteller, gave him a deep respect for the
+            spoken word, while time amongst monks, pagans, druids, and even a native American shaman, shaped his desire
+            to seek out spiritual matters, truth, and the divine love he knows, resides in us all.</p>
+          <p>Alongside his spiritual non fiction, Peter also writes fiction, and where a fable serves better than an
+            argument, he lets the story carry the idea instead.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================== BOOKS ============================== -->
   <div class="foil-edge"></div>
   <section class="books on-dark" id="books">
     <div class="wrap">
@@ -1319,7 +1388,6 @@
         <h2>The Books</h2>
       </div>
 
-      <!-- Book 1 -->
       <div class="book-row">
         <div class="book-visual">
           <div class="book-flip" id="flip1">
@@ -1339,10 +1407,10 @@
         </div>
         <div class="book-copy">
           <h3>Loving in the Age of Suffering<span class="subtitle">A Manual for Modern Day Man</span></h3>
-          <p class="desc">In a world quick to overwhelm and slow to heal, this book offers a way back to the light — a
-            spiritual roadmap through grief, connection, and the quiet resilience of the human heart. Written for the
-            modern man learning to feel again, it is as much a companion for hard seasons as it is a guide toward the
-            love that endures them.</p>
+          <p class="desc">Suffering is an inescapable part of the human experience. And yet, within the darkness, love
+            has the power to transform, heal, and connect us to what is deepest and most divine within us and around us.
+            Loving in the Age of Suffering offers a spiritual roadmap for navigating life's hardest valleys, with
+            kindness, compassion, meaning, and with an unshakeable connection to the light.</p>
           <div class="book-stores">
             <a href="#" class="btn btn-store">Amazon</a>
             <a href="#" class="btn btn-store">Everand</a>
@@ -1351,7 +1419,6 @@
         </div>
       </div>
 
-      <!-- Book 2 -->
       <div class="book-row reverse">
         <div class="book-visual">
           <div class="book-flip" id="flip2">
@@ -1392,10 +1459,9 @@
                   <foreignObject x="52" y="150" width="245" height="230">
                     <div xmlns="http://www.w3.org/1999/xhtml"
                       style="font-family: 'EB Garamond', Georgia, serif; font-size:13px; line-height:1.65; color:#D8C6AE; text-align:center;">
-                      A collection of verse written in the open air, tied together like knots in old rope &mdash; by
-                      grief, by wonder, and by the slow work of coming undone and remaking oneself. Each poem is a
-                      small, private prayer: for the ancient world we&rsquo;ve forgotten, and the ordinary one
-                      we&rsquo;re still learning to love.
+                      A collection of verse, tied together like knots in old rope. Each poem is a small, private
+                      reflection: on the vitality of existing, and the ordinary world we&rsquo;re still learning to
+                      love.
                     </div>
                   </foreignObject>
                   <path d="M120 430 Q174 410 228 430 Q174 450 120 430 Z" fill="none" stroke="#6E4E2E"
@@ -1413,10 +1479,10 @@
         </div>
         <div class="book-copy">
           <h3>Lashed Up<span class="subtitle">A Collection of Poems</span></h3>
-          <p class="desc">Lashed Up gathers years of verse written in the open air — poems tied together, like knots in
-            old rope, by grief, wonder, and the slow work of coming undone and remaking oneself. Each page holds a
-            small, private prayer: for the ancient world we've forgotten, and the ordinary one we're still learning to
-            love.</p>
+          <p class="desc">Lashed Up gathers years of written verse — poems tied together by one man's vitality, like
+            knots in old rope, the experience of all that existing entails; grief, wonder, and the slow work of coming
+            undone and remaking oneself. Each page holds a reflection of life: from dark and sombre moments, to the
+            joyful, reflective, and the mundane, most of all an ordinary one we're still learning to love.</p>
           <div class="book-stores">
             <a href="#" class="btn btn-store">Amazon</a>
             <a href="#" class="btn btn-store">Everand</a>
@@ -1427,7 +1493,6 @@
     </div>
   </section>
 
-  <!-- ============================== SERVICES ============================== -->
   <div class="foil-edge"></div>
   <section class="services" id="services">
     <div class="wrap">
@@ -1439,7 +1504,7 @@
 
       <div class="service-grid">
         <div class="service-card">
-          <svg class="icon" style="width:1.6rem;height:1.6rem;color:var(--gold-deep);margin-bottom:1rem;">
+          <svg class="icon" style="width:1.3rem;height:1.3rem;color:var(--gold-deep);margin-bottom:0.7rem;">
             <use href="#icon-book" />
           </svg>
           <h3>Manuscript Assessments</h3>
@@ -1452,7 +1517,7 @@
         </div>
 
         <div class="service-card">
-          <svg class="icon" style="width:1.6rem;height:1.6rem;color:var(--gold-deep);margin-bottom:1rem;">
+          <svg class="icon" style="width:1.3rem;height:1.3rem;color:var(--gold-deep);margin-bottom:0.7rem;">
             <use href="#icon-feather" />
           </svg>
           <h3>Developmental Editing</h3>
@@ -1465,7 +1530,7 @@
         </div>
 
         <div class="service-card">
-          <svg class="icon" style="width:1.6rem;height:1.6rem;color:var(--gold-deep);margin-bottom:1rem;">
+          <svg class="icon" style="width:1.3rem;height:1.3rem;color:var(--gold-deep);margin-bottom:0.7rem;">
             <use href="#icon-mic" />
           </svg>
           <h3>Public Speaking</h3>
@@ -1482,15 +1547,9 @@
                 <use href="#icon-pause" />
               </svg>
             </button>
-            <div class="audio-body">
-              <span class="audio-label">Hear Peter speak</span>
-              <input type="range" class="audio-seek" min="0" max="100" step="0.1" value="0"
-                aria-label="Seek audio clip">
-              <div class="audio-time">
-                <span class="audio-current">0:00</span>
-                <span class="audio-duration">0:00</span>
-              </div>
-            </div>
+            <input type="range" class="audio-seek" min="0" max="100" step="0.1" value="0" aria-label="Seek audio clip">
+            <span class="audio-time"><span class="audio-current">0:00</span>&nbsp;/&nbsp;<span
+                class="audio-duration">0:00</span></span>
             <audio class="audio-el" src="peter-speaking.m4a" preload="metadata"></audio>
           </div>
 
@@ -1501,7 +1560,7 @@
         </div>
 
         <div class="service-card">
-          <svg class="icon" style="width:1.6rem;height:1.6rem;color:var(--gold-deep);margin-bottom:1rem;">
+          <svg class="icon" style="width:1.3rem;height:1.3rem;color:var(--gold-deep);margin-bottom:0.7rem;">
             <use href="#icon-compass" />
           </svg>
           <h3>Ghost Writing</h3>
@@ -1516,7 +1575,6 @@
     </div>
   </section>
 
-  <!-- ============================== CONTACT ============================== -->
   <div class="foil-edge"></div>
   <section class="contact on-dark" id="contact">
     <div class="wrap">
@@ -1546,15 +1604,17 @@
         </div>
 
         <form class="form-card" id="contactForm" novalidate>
-          <div class="field" id="fieldName">
-            <label for="cf-name">Full Name</label>
-            <input type="text" id="cf-name" name="name" autocomplete="name">
-            <p class="field-error">Please enter your name.</p>
-          </div>
-          <div class="field" id="fieldEmail">
-            <label for="cf-email">Email Address</label>
-            <input type="email" id="cf-email" name="email" autocomplete="email">
-            <p class="field-error">Please enter a valid email address.</p>
+          <div class="field-row">
+            <div class="field" id="fieldName">
+              <label for="cf-name">Full Name</label>
+              <input type="text" id="cf-name" name="name" autocomplete="name">
+              <p class="field-error">Please enter your name.</p>
+            </div>
+            <div class="field" id="fieldEmail">
+              <label for="cf-email">Email Address</label>
+              <input type="email" id="cf-email" name="email" autocomplete="email">
+              <p class="field-error">Please enter a valid email address.</p>
+            </div>
           </div>
           <div class="field" id="fieldMessage">
             <label for="cf-message">Message</label>
@@ -1578,13 +1638,10 @@
   </section>
 
   <div class="foil-edge"></div>
-  <!-- ============================== FOOTER ============================== -->
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-brand">
-        <svg class="icon">
-          <use href="#icon-feather" />
-        </svg>
+        <img class="brand-icon" src="quill-icon.png" alt="">
         PETER F. WOLFSON
       </div>
       <nav class="footer-nav" aria-label="Footer">
@@ -1603,7 +1660,6 @@
     (function () {
       "use strict";
 
-      /* Sticky nav shadow on scroll */
       var nav = document.getElementById('siteNav');
       var onScroll = function () {
         if (window.scrollY > 12) { nav.classList.add('is-scrolled'); }
@@ -1612,7 +1668,6 @@
       document.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
 
-      /* Mobile nav toggle */
       var toggle = document.getElementById('navToggle');
       var mobile = document.getElementById('navMobile');
       toggle.addEventListener('click', function () {
@@ -1627,7 +1682,6 @@
         });
       });
 
-      /* Audio player(s) */
       function formatTime(sec) {
         if (!isFinite(sec)) return '0:00';
         var m = Math.floor(sec / 60);
@@ -1680,7 +1734,6 @@
         });
       });
 
-      /* Book flip toggles */
       document.querySelectorAll('.book-toggle').forEach(function (group) {
         var targetId = group.getAttribute('data-flip-target');
         var flipEl = document.getElementById(targetId);
@@ -1692,17 +1745,14 @@
             buttons.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
           });
         });
-        /* clicking the cover itself also flips it */
         flipEl.addEventListener('click', function () {
           var isFlipped = flipEl.classList.toggle('is-flipped');
           buttons.forEach(function (b) {
             b.setAttribute('aria-pressed', (b.getAttribute('data-face') === (isFlipped ? 'back' : 'front')) ? 'true' : 'false');
           });
         });
-        flipEl.style.cursor = 'pointer';
       });
 
-      /* Contact form validation */
       var form = document.getElementById('contactForm');
       var success = document.getElementById('formSuccess');
       form.addEventListener('submit', function (e) {
