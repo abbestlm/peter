@@ -586,25 +586,7 @@
       position: relative;
     }
 
-    .about::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: clamp(20px, 5vw, 60px);
-      height: clamp(200px, 30vw, 400px);
-      background: var(--burnt-orange);
-    }
 
-    .about::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: clamp(200px, 30vw, 400px);
-      height: clamp(20px, 5vw, 60px);
-      background: var(--burnt-orange);
-    }
 
     .about-grid {
       display: grid;
@@ -627,6 +609,17 @@
       box-shadow: 0 30px 55px -24px var(--shadow), 0 6px 16px -8px var(--shadow-soft);
       position: relative;
       z-index: 1;
+    }
+
+    .about-photo-frame::before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      width: 100%;
+      height: 100%;
+      background: var(--burnt-orange);
+      z-index: -1;
     }
 
     .about-photo-placeholder {
@@ -662,6 +655,17 @@
       padding: clamp(1.8rem, 3vw, 2.3rem);
       position: relative;
       z-index: 1;
+    }
+
+    .pull-card::after {
+      content: "";
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 100%;
+      height: 100%;
+      background: var(--burnt-orange);
+      z-index: -1;
     }
 
 
@@ -735,7 +739,13 @@
         width: min(260px, 70vw);
       }
 
-
+      .about-photo-frame::before,
+      .pull-card::after {
+        top: -10px;
+        left: -10px;
+        bottom: -10px;
+        right: -10px;
+      }
     }
 
     /* BOOKS (dark) */
@@ -1359,6 +1369,9 @@
           running through ordinary life — what the modern world has cost us, and the innate compassion we still have the
           power
           to reclaim. His mission is simple: to help people find their way back to love, meaning, and one another.</p>
+        <p class="hero-lede reveal" style="animation-delay:.35s; font-size: 1.1rem; margin-top: 1rem;">
+          His work is a journey of exploration and self-discovery into where we are at personally, and how we can manifest that divine love in ourselves and the world around us.
+        </p>
         <div class="hero-actions reveal" style="animation-delay:.4s">
           <a href="#books" class="btn btn-solid">Explore the Work</a>
           <a href="#about" class="btn btn-line">About Peter</a>
@@ -1526,8 +1539,6 @@
           </div>
         </div>
         <div class="book-copy">
-          <span class="eyebrow" style="margin-bottom: 0.8rem; font-size: 0.85rem; color: var(--gold-light);">Book Two
-            &nbsp;·&nbsp; Coming Soon</span>
           <h3>Lashed Up<span class="subtitle">A Collection of Poems</span></h3>
           <p class="desc">Lashed Up gathers years of written verse — poems tied together by one man's vitality, like
             knots in old rope, the experience of all that existing entails; grief, wonder, and the slow work of coming
