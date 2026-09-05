@@ -1662,7 +1662,7 @@
           </div>
         </div>
 
-        <form class="form-card" id="contactForm" action="https://formspree.io/f/mnpqzlda" method="POST" novalidate>
+        <form class="form-card" id="contactForm" action="https://formspree.io/f/mbgjkebb" method="POST" novalidate>
           <div class="field" id="fieldEmail">
             <label for="cf-email">Email Address</label>
             <input type="email" id="cf-email" name="email" autocomplete="email">
@@ -1847,7 +1847,7 @@
           } else {
             response.json().then(function (data) {
               console.error('Formspree error:', data);
-            }).catch(function () {});
+            }).catch(function () { });
             alert('Something went wrong sending your message. Please try again or email directly.');
           }
         }).catch(function (err) {
