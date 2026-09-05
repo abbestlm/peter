@@ -1829,10 +1829,31 @@
           return;
         }
 
-        success.classList.add('is-visible');
-        form.reset();
-        ['fieldEmail', 'fieldMessage'].forEach(function (id) {
-          document.getElementById(id).classList.remove('has-error');
+        var submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (response) {
+          submitBtn.disabled = false;
+          if (response.ok) {
+            success.classList.add('is-visible');
+            form.reset();
+            ['fieldEmail', 'fieldMessage'].forEach(function (id) {
+              document.getElementById(id).classList.remove('has-error');
+            });
+          } else {
+            response.json().then(function (data) {
+              console.error('Formspree error:', data);
+            }).catch(function () {});
+            alert('Something went wrong sending your message. Please try again or email directly.');
+          }
+        }).catch(function (err) {
+          submitBtn.disabled = false;
+          console.error('Network error:', err);
+          alert('Something went wrong sending your message. Please try again or email directly.');
         });
       });
     })();
